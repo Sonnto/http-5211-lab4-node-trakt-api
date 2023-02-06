@@ -1,0 +1,14 @@
+extends layout 
+
+
+block main-content 
+  //You can overwrite the main-content block by writing block content
+  //in the template file which is extending.
+  h1.page-title Hello! 
+  p Here are some trending movies: 
+  ul 
+    each m in movies 
+      li 
+        - url = `/movie-studios?id=${m.movie.ids.imdb}`; // "-" means snippet of javascript in here
+        a(href=url) #{m.movie.title}
+        div (Watchers: #{m.watchers})
